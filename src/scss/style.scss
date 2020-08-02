@@ -1,16 +1,13 @@
 @import "_reset";
 @import "_variables";
 @import "_mixins";
+@import "_buttons";
 
 a {
-  display: block;
-  text-decoration: none;
-  margin-bottom: 30px;
-  font-size: 30px;
-  &:nth-child(odd) {
-    @include link("odd");
-  }
-  &:nth-child(even) {
-    @include link("even");
-  }
+  @extend %button;
+}
+
+button {
+  @extend %button;
+  border: none;
 }
