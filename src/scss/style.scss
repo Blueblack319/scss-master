@@ -1,24 +1,16 @@
 @import "_reset";
 @import "_variables";
+@import "_mixins";
 
-body {
-  background-color: $bgcolor;
-}
-
-main {
-  height: 100vh;
-  color: red;
-  .box {
-    color: yellow;
-    button {
-      &:hover {
-        background-color: green;
-      }
-    }
+a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 30px;
+  font-size: 30px;
+  &:nth-child(odd) {
+    @include link("odd");
   }
-  button {
-    &:hover {
-      background-color: greenyellow;
-    }
+  &:nth-child(even) {
+    @include link("even");
   }
 }

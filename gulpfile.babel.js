@@ -11,7 +11,7 @@ import ghPages from "gulp-gh-pages";
 
 const routes = {
   pug: {
-    watch: "src/**/*.puge",
+    watch: "src/**/*.pug",
     src: "src/*.pug",
     dest: "dist",
   },
