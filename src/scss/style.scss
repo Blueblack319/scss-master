@@ -4,3 +4,21 @@
 body {
   background-color: $bgcolor;
 }
+
+main {
+  height: 100vh;
+  color: red;
+  .box {
+    color: yellow;
+    button {
+      &:hover {
+        background-color: green;
+      }
+    }
+  }
+  button {
+    &:hover {
+      background-color: greenyellow;
+    }
+  }
+}

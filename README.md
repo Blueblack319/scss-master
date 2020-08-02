@@ -2,8 +2,8 @@ SCSS Master
 
 ## SCSS:
 
-- [ ] Variables
-- [ ] Nesting
+- [x] Variables
+- [x] Nesting
 - [ ] Mixins
 - [ ] Extend
 - [ ] Responsive Mixins
