@@ -3,11 +3,23 @@
 @import "_mixins";
 @import "_buttons";
 
-a {
-  @extend %button;
-}
-
-button {
-  @extend %button;
-  border: none;
+h1 {
+  color: blue;
+  text-decoration: none;
+  @include responsive("iphone") {
+    color: green;
+    font-size: 12px;
+  }
+  @include responsive("iphone-l") {
+    color: indianred;
+    font-size: 50px;
+  }
+  @include responsive("ipad") {
+    color: indigo;
+    font-size: 30px;
+  }
+  @include responsive("ipad-l") {
+    color: ivory;
+    font-size: 100px;
+  }
 }
