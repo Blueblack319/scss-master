@@ -5,6 +5,7 @@ import ws from "gulp-webserver";
 import sass from "gulp-sass";
 import autoprefixer from "gulp-autoprefixer";
 import minify from "gulp-csso";
+import bro from "gulp-bro";
 
 const routes = {
   pug: {
@@ -17,11 +18,17 @@ const routes = {
     src: "src/scss/style.scss",
     dest: "dist/css",
   },
+  js: {
+    watch: "src/js/*.js",
+    src: "src/js/main.js",
+    dest: "dist/js",
+  },
 };
 
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
   gulp.watch(routes.scss.watch, scss);
+  gulp.watch(routes.js.watch, js);
 };
 
 const clean = () => del(["dist"]);
@@ -46,8 +53,21 @@ const scss = () =>
     .pipe(minify())
     .pipe(gulp.dest(routes.scss.dest));
 
+const js = () =>
+  gulp
+    .src(routes.js.src)
+    .pipe(
+      bro({
+        transform: [
+          babelify.configure({ presets: ["es2015"] }),
+          ["uglifyify", { global: true }],
+        ],
+      })
+    )
+    .pipe(gulp.dest(routes.js.dest));
+
 const prepare = gulp.series([clean]);
-const assets = gulp.series([pug, scss]);
+const assets = gulp.series([pug, scss, js]);
 const live = gulp.series([webserver, watch]);
 
 export const build = gulp.series([prepare, assets]);
